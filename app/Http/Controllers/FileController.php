@@ -26,5 +26,8 @@ class FileController extends Controller
                 'file' => $file
             ]);
         }
+        else{
+            abort(404);
+        }
     }
 }
