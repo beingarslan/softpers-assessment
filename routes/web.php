@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/files', [FileController::class, 'files'])->middleware(['auth'])->name('files');
+Route::get('/file/{id}', [FileController::class, 'file'])->middleware(['auth'])->name('file');
+
 
 require __DIR__.'/auth.php';
